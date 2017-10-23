@@ -1,2 +1,10 @@
 .vs
 *.VC.db
+*.VC.opendb
+Dist/x64
+*.log
+*.obj
+*.lib
+*.tlog
+.lastbuildstate
+unsuccessfulbuild
