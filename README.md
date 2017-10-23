@@ -1,0 +1,1 @@
+FreeImage with patches applied to make compiling with Visual Studio 2015 work.
