@@ -8,3 +8,9 @@ Dist/x64
 *.tlog
 .lastbuildstate
 unsuccessfulbuild
+*.obj
+*.lib
+*.vcxproj.user
+*.dll
+*.exp
+*.pdb
