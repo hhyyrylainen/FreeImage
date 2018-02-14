@@ -1,3 +1,6 @@
+# This is a new cmake for compiling FreeImage with newer visual studio versions that the solution files work with
+# This is the recommended way to compile this
+# This file is written by Henri Hyyryläinen 14.2.2018 licensed under MIT license
 cmake_minimum_required(VERSION 3.5)
 
 
