@@ -14,3 +14,6 @@ unsuccessfulbuild
 *.dll
 *.exp
 *.pdb
+Wrapper/FreeImagePlus/dist/x64/
+Wrapper/FreeImagePlus/x64/
+/build
