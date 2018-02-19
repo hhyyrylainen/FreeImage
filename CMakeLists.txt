@@ -4,7 +4,11 @@
 cmake_minimum_required(VERSION 3.5)
 
 
-project(FreeImage)
+project(FreeImageProject)
+
+if(NOT CMAKE_DEBUG_POSTFIX)
+  set(CMAKE_DEBUG_POSTFIX "_d")
+endif()
 
 if(WIN32)
   add_compile_options("/MP")
@@ -208,7 +212,8 @@ add_library(LibRawLite STATIC
   "Source/LibRawLite/src/libraw_datastream.cpp"
   )
 
-target_compile_definitions(LibRawLite PRIVATE "LIBRAW_NODLL" "LIBRAW_BUILDLIB")
+target_compile_definitions(LibRawLite PRIVATE "LIBRAW_BUILDLIB")
+target_compile_definitions(LibRawLite PUBLIC "LIBRAW_NODLL")
 
 target_include_directories(LibRawLite PUBLIC
   "Source/LibRawLite"
@@ -871,14 +876,15 @@ target_include_directories(FreeImage
   "Source/FreeImage"
   )
 
-target_compile_definitions(FreeImage PRIVATE "FREEIMAGE_EXPORTS" "FREEIMAGE_LIB")
+target_compile_definitions(FreeImage PRIVATE "FREEIMAGE_EXPORTS" "FREEIMAGE_EXPORTS")
 
 target_link_libraries(FreeImage ZLib LibJPEG OpenEXR LibJXR LibOpenJPEG LibPNG LibRawLite
   LibTIFF4 LibWebP)
 
 
 install(FILES "Source/FreeImage.h" DESTINATION include)
+
 install(TARGETS FreeImage
-  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib)
+  RUNTIME DESTINATION bin)
